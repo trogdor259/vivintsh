@@ -18,5 +18,10 @@
  "name":"folder2",
  "parent":"folder1",
  "type":"folder"
-}
+},
+ {
+  "name":"file3",
+  "parent":"folder2",
+  "type":"file"
+ }
 ]
