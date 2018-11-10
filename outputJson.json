@@ -1,0 +1,12 @@
+[
+    {
+        "name": "folder1",
+        "parent": "root",
+        "type": "folder"
+    },
+    {
+        "name": "folder2",
+        "parent": "folder1",
+        "type": "folder"
+    }
+]
