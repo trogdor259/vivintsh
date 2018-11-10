@@ -21,7 +21,7 @@
 },
  {
   "name":"file3",
-  "parent":"folder2",
+  "parent":"root",
   "type":"file"
  }
 ]

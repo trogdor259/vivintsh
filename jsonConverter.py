@@ -34,8 +34,13 @@ def set_main_folder(data, primary):
 
 
 def set_children(data, names, primary):
-    folders = set_main_folder(data, primary)
+    folders = [set_main_folder(data, primary)]
     for i in data:
+        z = 0
+        while z < len(folders):
+            if i["parent"] == primary and i["name"] != folders[z]["name"]:
+                folders.append(i)
+            z += 1
         if i["parent"] in names:
             parent_name = i["parent"]
             for x in data:
