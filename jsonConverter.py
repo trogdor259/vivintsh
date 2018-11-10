@@ -1,4 +1,17 @@
 import json
+import argparse
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Take a json file and converted to nested json")
+
+    parser.add_argument('-i', '--input_file', type=str, default="inputJson.json",
+                        help="The file to convert to nested json")
+    parser.add_argument('-o', '--output_file', type=str, default="outputJson.json",
+                        help="The file to output the nested json to")
+    args = parser.parse_args()
+
+    return args
 
 
 def get_primary(data):
@@ -35,15 +48,16 @@ def set_children(data, names, primary):
     return folders
 
 
-def main(inputFile, outputFile):
-    with open(inputFile, 'r') as input:
+def main():
+    args = parse_args()
+    with open(args.input_file, 'r') as input:
         data = json.load(input)
     primary = get_primary(data)
     folders = set_children(data, get_names(data), primary)
-    with open(outputFile, 'w') as output:
+    with open(args.output_file, 'w') as output:
         json.dump(folders,  output, sort_keys=True,
                   indent=4)
 
 
 if __name__ == "__main__":
-    main("inputJson.json", "outputJson.json")
+    main()
